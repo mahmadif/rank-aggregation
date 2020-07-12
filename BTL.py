@@ -1,9 +1,17 @@
-def BTL(Data, probs=False, max_iter=10**5):
-    '''
+'''
     computes the parameters using maximum likelihood principle.
     This function is adapted from the Matlab version provided by David Hunter
     http://personal.psu.edu/drh20/code/btmatlab
-    '''
+'''
+# input:
+	# Data: nxn comparison matrix
+	# probs: when True, turns the comparison matrix into pairwise preference probabilities, i.e., Data[i,j] + Data[j,i] = 1
+	# max_iter: the maximum number of iterations
+	
+# output: the estimated parameters
+
+def BTL(Data, probs=False, max_iter=10**5):
+    
     wm = Data
     if probs:
         np.fill_diagonal(wm, 1)
